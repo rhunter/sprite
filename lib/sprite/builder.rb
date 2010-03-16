@@ -53,6 +53,10 @@ module Sprite
         end
       end
     end
+
+    def image_url(name)
+      @config['external_base'] + @config['image_output_path'] + name
+    end
     
     protected
     def write_image(image)
@@ -110,6 +114,7 @@ module Sprite
       @config['image_output_path']  ||= 'images/sprites/'
       @config['image_source_path']  ||= 'images/'
       @config['public_path']        ||= 'public/'
+      @config['external_base']      ||= '/'
       @config['default_format']     ||= 'png'
       @config['class_separator']    ||= '-'
       @config["sprites_class"]      ||= 'sprites'
